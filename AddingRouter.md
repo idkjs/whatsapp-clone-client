@@ -106,3 +106,21 @@ export default App;
 ```
 
 Open `http://localhost:3001/chats/1` to see it in action. `browser history` isnt set up yet but going to the url shows the routing is working.
+
+## Navigate to chat on click/Adding Browser History
+
+`yarn add history @types/history` for `ReactRouterDom's` history.
+
+Edit `src/components/ChatsListScreen/ChatsList.tsx`.
+Old version is `src/components/ChatsListScreen/ChatsListBefore.tsx`.
+
+`cp src/components/ChatsListScreen/index.tsx src/components/ChatsListScreen/indexBefore.tsx`.
+
+Edit `src/components/ChatsListScreen/index.tsx`.
+Old version is `src/components/ChatsListScreen/indexBefore.tsx`.
+
+## Test Nav with src/components/ChatsListScreen/ChatsList.test.tsx
+
+`touch src/components/ChatsListScreen/ChatsList.test.tsx`
+
+
