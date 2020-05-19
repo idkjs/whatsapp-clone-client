@@ -4,7 +4,6 @@ import { List, ListItem } from '@material-ui/core';
 import styled from 'styled-components';
 import { useState, useMemo } from 'react';
 
-
 const Container = styled.div`
   height: calc(100% - 56px);
   overflow-y: overlay;
@@ -97,12 +96,15 @@ const ChatsList = () => {
             <ChatPicture
               data-testid="picture"
               src={chat.picture}
-              alt="Profile" />
+              alt="Profile"
+            />
             <ChatInfo>
               <ChatName data-testid="name">{chat.name}</ChatName>
               {chat.lastMessage && (
                 <React.Fragment>
-                  <MessageContent data-testid="content">{chat.lastMessage.content}</MessageContent>
+                  <MessageContent data-testid="content">
+                    {chat.lastMessage.content}
+                  </MessageContent>
                   <MessageDate data-testid="date">
                     {moment(chat.lastMessage.createdAt).format('HH:mm')}
                   </MessageDate>
@@ -117,5 +119,3 @@ const ChatsList = () => {
 };
 
 export default ChatsList;
-
-
