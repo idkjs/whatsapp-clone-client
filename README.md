@@ -86,3 +86,44 @@ React.useMemo() - which is used to run a computation only once certain condition
 ```ts
 const memoizedValue = useMemo(calcFn, [cond1, cond2, ...conds]);
 ```
+
+## Testing with `data-testid`
+
+`yarn add jest-fetch-mock @testing-library/jest-dom @testing-library/react`
+
+
+Now we're gonna write a basic test for the <ChatsList /> component. In the test, we'll mock a fake response from the server, and examine the contents of rendered HTML. Since the HTML of the component is a dynamic thing and is constantly subject to changes, it would be a good idea to annotate it with data-testid attributes so it can be tested regardless of its structure:
+
+# [Testing](https://www.tortilla.academy/Urigo/WhatsApp-Clone-Tutorial/master/next/step/5)
+
+## [jest-fetch-mock](https://www.npmjs.com/package/jest-fetch-mock)
+
+
+- The jest-fetch-mock package can mock responses emitted by the Fetch API.
+- The @testing-library/jest-dom package will add custom matchers that will help us examine HTML contents of DOM elements.
+- The @testing-library/react package contains utility methods that will help us test React.Components with Jest.
+
+Next, we will create a file under the src folder called setupTests.ts. This file is configured automatically by create-react-app and loaded by Jest, and we can use it to set up our testing environment according to our needs (like said earlier, Jest can be configured, so this file path can be changed). We will use that file to define a fake Fetch API using the jest-fetch-mock library:
+
+```ts
+// src/setupTests.ts
+// for embedme
+```
+
+We will create another file called ChatsList.test.tsx, right next to the <ChatsList /> component under the ChatsListScreen directory, and inside we will implement our test. The test should follow these steps:
+
+- Mock the response to contain a fake chat, so we won't need to make an actual call to our GraphQL API.
+
+- We will create a new instance of <ChatsList /> and render it in a container element.
+
+- We will wait for changes in the DOM caused by setState().
+
+- We will test the contents of the container.
+
+And this is how the implementation should look like:
+
+```ts
+//src/components/ChatsListScreen/ChatsList.test.tsx
+```
+
+Jest API is vast but pretty intuitive for the most part. It mostly consists of test descriptors and matchers. [Here's a full list of all matchers which are built into Jest's API](https://jestjs.io/docs/en/expect). Always make sure to work against it when writing tests, for optimal results.
